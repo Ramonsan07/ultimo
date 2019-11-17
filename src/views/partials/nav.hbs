@@ -1,0 +1,47 @@
+ <nav class="navbar navbar-expand-md navbar-collapse-sm navbar-light bg-light">
+    <div class="container">
+      <div class="navbar-collapse">
+        <div class="d-block">
+         <a href="#" class="d-block navbar-brand text-center">app</a>
+        </div>
+          <ul class="navbar-nav ml-auto">
+            {{#if user}}
+              <li class="navbar-item"></li><a href="/links" class="nav-link">INICIO</a></li>
+              <li class="navbar-item"><a href="/profile" class="nav-link">TU PERFIL</a></li>
+              <div>
+                  <form class="form-inline">
+                  <input type="text" name="buscado" placeholder="buscar" class="form-control">
+                  <button class="btn btn-outline-success ml-2 "><i class="fa fa-search"></i></button>
+                  </form>
+              </div>
+              <li class="navbar-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" ></a>
+                <div class="dropdown-menu">
+                  <a href="/logOut" class="dropdown-item">CERRAR SESION</a>
+                  <a href="#" class="dropdown-item">cartel de santa</a>
+                </div>               
+              </li>
+              {{/if}}
+              {{#unless user}}
+              <li class="navbar-item"></li><a href="/signin" class="nav-link">SIGNIN</a></li>
+              <li class="navbar-item"></li><a href="/signup" class="nav-link">SIGNUP</a></li>
+              <li class="navbar-item"></li><a href="" class="nav-link">LISETTE MI AMOR</a></li>
+              <div>
+                  <form class="form-inline">
+                  <input type="text" name="buscado" placeholder="buscar" class="form-control">
+                  <button class="btn btn-outline-success ml-2 "><i class="fa fa-search"></i></button>
+                  </form>
+              </div>
+              {{/unless}}
+              </ul>
+              
+              </div>
+               
+            </ul>
+      </div>
+   
+  </nav>
+
+
+
+  

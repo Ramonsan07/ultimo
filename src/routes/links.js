@@ -11,14 +11,14 @@ router.get('/add', isLoggedIn, (req,res)=>{ //1
 
 router.post('/add', isLoggedIn, async(req,res)=>{//2
     const {title, url, description} = req.body;
-    const newObject = {title, url, description};
+    const newObject = {title, url, description, USER_ID: req.user.ID};
     await pool.query('INSERT INTO LINKS set ?', newObject);
     req.flash('successCrud','LINK ADDED SUCCESSFULY');
     res.redirect('/links');//los reder  ict comienzan desde la ruta inicial en adelante.
 });
 
 router.get('/', isLoggedIn, async (req, res)=>{//3
-    const links = await pool.query('SELECT * FROM LINKS');
+    const links = await pool.query('SELECT * FROM LINKS WHERE USER_ID = ?',[req.user.ID]);
     console.log(links);
     res.render('links/list', {links: links});
 });
